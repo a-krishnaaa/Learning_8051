@@ -5,7 +5,7 @@ sbit rs = P2^0;     // Connecting Register Select pin of lcd to P2.0
 sbit rw = P2^1;     // Connecting RW pin of lcd to P2.1
 sbit en = P2^2;     // Connecting Enable pin of lcd to P2.2
 
-void MSDelay(unsigned int itime)        // delay function
+void MSDelay(unsigned int itime)        // delay function to provide some delay after each operation
 {
    unsigned int i,j;
    for(i=0;i<itime;i++);
