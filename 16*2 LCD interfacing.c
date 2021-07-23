@@ -12,7 +12,7 @@ void MSDelay(unsigned int itime)        // delay function to provide some delay 
       for(j=0;j<1275;j++);
 }
 
-void lcdcmd(unsigned char value)          // function to send command to lcd
+void lcdcmd(unsigned char value)     // function to send command to command register of lcd. to see command of 16*2 lcd please search '16*2 lcd commands" on google
 {
    ldata = value;
    rs = 0;
@@ -36,19 +36,19 @@ void lcddata(unsigned char value)       // function to send data to lcd
 
 void main ()
 {
-   lcdcmd(0x38);
+   lcdcmd(0x38);           // to set lcd in 2 lines and 5×7 matrix
    MSDelay(250);
-   lcdcmd(0x0E);
+   lcdcmd(0x0E);           // to turn on display and blink the cursor
    MSDelay(250);
-   lcdcmd(0x01);
+   lcdcmd(0x01);           // to clear the screen
    MSDelay(250);
-   lcdcmd(0x06);
+   lcdcmd(0x06);           // to Increment cursor (shift cursor to right)
    MSDelay(250);
-   lcdcmd(0x86);
+   lcdcmd(0x86);           //
    MSDelay(250);
-   lcddata('M');
+   lcddata('I');           // sending character I to lcd via data bus
    MSDelay(250);
-   lcddata('D');
+   lcddata('L');
    MSDelay(250);
-   lcddata('E');
+   lcddata('Y');
 }
